@@ -1,0 +1,205 @@
+
+
+Tabla Producto
+id
+Nombre
+Descripcion
+Valor
+idTipoAlimento
+Dulce BIT 
+idTemperatura 
+Imagen
+fechaAlta
+fechaModificacion
+estado
+
+tabla Temperatura 
+1 frio
+2 calor
+3 natural
+id
+nombre
+fechaAlta
+fechaModificacion
+estado
+
+tabla TipoAlimento 
+1-Cafe 
+2-Bebidas 
+3-Pastry
+4-Chambuchitos
+5-Tostones
+6-Filtradukis
+id
+nombre
+idTemperatura 
+fechaAlta
+fechaModificacion
+estado
+
+Tabla Promos
+id
+Nombre
+Descripcion
+ValorPromo
+Imagen
+fechaAlta
+fechaModificacion
+estado
+
+Tabla Combos
+id
+Nombre
+Descripcion
+valor
+Imagen
+fechaAlta
+fechaModificacion
+estado
+
+Tabla Producto/Combo
+id
+idProducto
+idCombo
+Descripcion
+fechaAlta
+fechaModificacion
+estado
+
+Tabla Producto/Promo
+id
+idProducto
+idPromo
+Descripcion
+fechaAlta
+fechaModificacion
+estado
+
+Tabla Sucursal
+id 
+nombre
+Descripcion
+Direccion
+IframeMaps
+Telefono
+FechaAlta
+FechaModificacion
+estado
+
+Tabla imagenesLocal
+id
+Imagen
+Descripcion
+FechaAlta
+FechaModificacion
+estado
+
+CREATE TABLE Sucursal(
+    	id int PRIMARY KEY AUTO_INCREMENT,
+    	Nombre varchar(50) NOT NULL,
+    	Descripcion varchar(255) NOT NULL,
+    	Direccion varchar(50) NOT NULL,
+    	IframeMaps varchar(50) NOT NULL,
+    	Telefono NUMERIC(10) NULL,
+    	FechaAlta DATETIME DEFAULT CURRENT_TIMESTAMP,
+		FechaModificacion DATETIME NULL,
+    	Estado BIT DEFAULT True
+    )
+
+INSERT INTO Admin (Nombre,Contraseña)
+VALUES ("Admin","Admin")
+
+
+CREATE TABLE Promos(
+    	id int PRIMARY KEY AUTO_INCREMENT,
+    	Nombre varchar(50) NOT NULL,
+    	Descripcion varchar(255) NOT NULL,
+    	Valor double NOT NULL,
+    	Imagen varchar(255) NOT NULL,
+    	idTemperatura int NOT NULL REFERENCES temperatura(id),
+    	Dulce BIT NOT NULL,
+    	FechaAlta DATETIME DEFAULT CURRENT_TIMESTAMP,
+		FechaModificacion DATETIME NULL,
+    	Estado BIT DEFAULT True
+    )
+
+
+// INSERT MASIVO DE PRODUCTOS
+INSERT INTO `producto`(`Nombre`, `Descripcion`, `Valor`, `Imagen`, `idTipoAlimento`, `idTemperatura`, `Dulce`) 
+VALUES ('Café Espresso',null,800,'noimg'	,1,2,0),
+ ('Café Americano', null,800,'noimg'		,1,2,0),
+ ('Café Capuccino', null,1100,'noimg'		,1,2,0),
+ ('Café Mocaccino', null,1300,'noimg'		,1,2,0),
+ ('Café Latte',	    null,1000,'noimg'		,1,2,0),
+ ('Café Long Black',null,1000,'noimg'		,1,2,0),
+ ('Café Doppio',	null,1000,'noimg'		,1,2,0),
+ ('Café Doppio Macchiato',null,1000,'noimg'	,1,2,0),
+ ('Café Flat White',	  null,1200,'noimg'	,1,2,0),
+ ('Extra Shot de Café',null,400,'noimg'		,1,2,0),
+ ('Café Americano Ice',null,1100,'noimg'	,1,1,0),
+ ('Café Ice Latte','Avellana, Vainilla, Caramelo u Toffee',1300,'noimg',1,1,0),
+ ('Café Espresso Tonic','Citrico o Frutal',1300,'noimg',1,1,0),
+ ('Café Cold Brew',null,1400,'noimg',1,1,0),
+ ('Medialunas',null,300,'noimg',3,3,1),
+ ('Croissant',null,650,'noimg',3,3,1),
+ ('Pain au Chocolat',null,750,'noimg',3,2,1),
+ ('Roll de Canela',null,2000,'noimg',3,2,1),
+ ('Brownie',null,900,'noimg',3,3,1),
+ ('Chipa',null,800,'noimg',3,3,0),
+ ('Alfa Choco',null,1200,'noimg',3,3,1),
+ ('Cookie Chocolate',null,600,'noimg',3,3,1),
+ ('Budin Citrico',null,1200,'noimg',3,3,0),
+ ('Budin Pistacho',null,1800,'noimg',3,3,1),
+ ('Budin Banana',null,1200,'noimg',3,3,1),
+ ('Cheese Cake F. Rojos',null,2000,'noimg',3,1,1),
+ ('Red Velvet',null,2000,'noimg',3,1,1),
+ ('Lingote de Lima',null,2000,'noimg',3,1,0),
+ ('Tarta Pistacho',null,2000,'noimg',3,3,1),
+ ('Choco Oreo',null,2000,'noimg',3,1,1),
+ ('Torta Matilda',null,2000,'noimg',3,1,1),
+ ('Croissant Ham','Jamon y Queso',1600,'noimg',4,3,0),
+ ('Croissant Nut','Nutella y Avellana',1600,'noimg',4,3,1),
+ ('Baguel/Ciabatta Yellow','Baguel con lomito/jamon, mostaza y miel',2000,'noimg',4,3,0),
+ ('Baguel/Ciabatta Green','Baguel con palta, queso gouda y aceite de oliva',1800,'noimg',4,3,0),
+ ('Arabe de JyQ',null,1800,'noimg',4,3,0),
+ ('JamonXLomito',null,200,'noimg',4,3,0),
+ ('Tomate',null,0,'noimg',4,3,0),
+ ('Toston 1','Toston de masa madre, palta, huevo, tomates y aceite de oliva',2600,'noimg',5,3,0),
+ ('Toston 2','Toston de masa madre, lomito morrones, aceite de oliva, ajo y huevo',2600,'noimg',5,3,0),
+ ('Chemex',null,1600,'noimg',6,3,0),
+ ('Dripper',null,1600,'noimg',6,3,0),
+ ('Aeropress',null,1600,'noimg',6,3,0),
+ ('Coca Cola 500ml',null,800,'noimg',2,1,0),
+ ('Coca Cola Zero 500ml',null,800,'noimg',2,1,0),
+ ('Sprite 500ml',null,800,'noimg',2,1,0),
+ ('Aquarius 500ml',null,800,'noimg',2,1,0),
+ ('Monster',null,800,'noimg',2,1,0),
+ ('Speed',null,800,'noimg',2,1,0),
+ ('Johnnie Walker Red Label',null,2300,'noimg',7,1,0),
+ ('Johnnie Walker Blakc Label',null,3300,'noimg',7,1,0),
+ ('Jack Daniel´s Honey',null,4500,'noimg',7,1,0),
+ ('Fernet',null,2200,'noimg',7,1,0),
+ ('Gin Tonic',null,3500,'noimg',7,1,0),
+ ('Jhonnie Lemon',null,2500,'noimg',7,1,0),
+ ('Aperol Spritz',null,2300,'noimg',7,1,0),
+ ('Vermucito',null,2000,'noimg',7,1,0),
+ ('Campari',null,2200,'noimg',7,1,0),
+ ('Gancia',null,2200,'noimg',7,1,0)
+
+ // INSERT MASIVO Combos
+ INSERT INTO `combos`(`Nombre`, `Descripcion`, `Valor`, `Imagen`) 
+VALUES ('Ventanita 1','Latte o Flat White + Croissant',1650,'noimg'),
+ ('Ventanita 2','Latte o Flat White + Cookie',1650,'noimg'),
+ ('Ventanita 3','Latte o Flat White + 2 Medialunas',1650,'noimg'),
+ ('Ventanita 4','Latte o Flat White + Budin',2500,'noimg'),
+ ('Ventanita 5','Latte o Flat White + 100gr. Chipa',1800,'noimg'),
+ ('Ventanita 6','Latte o Flat White + Toston',3150,'noimg'),
+ ('Ventanita 7','Latte o Flat White + Torta',2900,'noimg')
+
+ // INSERT imgs de local
+ INSERT INTO `imageneslocal`(`Imagen`, `Descripcion`) 
+VALUES ('cafetera.jpg','Cafetera del local'),
+ ('puerta.jpg','puerta'),
+ ('puerta2.jpg','puerta'),
+ ('puerta3.jpg','puerta'),
+ ('puerta4.jpg','puerta')
