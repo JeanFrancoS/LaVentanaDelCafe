@@ -187,26 +187,33 @@ img {
   background-color: white;
 }
 .navMenu {
-  position: sticky;
+  /* background-color: white; */
 }
 .linkTipoAlimento {
   position: relative;
+  cursor: pointer;
+  text-decoration: none;
   font-size: 1.25em;
   border: none;
   padding: 0;
   background: 0 0;
-  color: #2c636e;
+  color: black;
   font-weight: 700;
 }
 .ul {
-  width: 300px;
+  position: fixed;
+  background-color: rgb(224, 224, 224);
+  list-style: none;
+  width: 316px;
   flex-direction: column;
-  margin: 1.1em 1.5em 0;
+  margin-left: 3rem;
   padding: 1em 1.5em;
-  /* background-color: #b3d1d9; */
   border-radius: 1.5em;
-  border: 5px solid white;
+  border: 5px solid black;
   box-shadow: 0 3px 5px -1px #0003, 0 5px 8px #00000024, 0 1px 14px #0000001f;
+}
+.ul li {
+  margin: 1rem 0;
 }
 .cardProducto {
   display: flex;
