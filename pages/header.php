@@ -20,7 +20,7 @@ foreach($sucursales as $sucursal){
 <body class="body">
     <header class="header">
         <div class="horario">
-            <h3>Abiertos de <?php echo $horario_sucursal ?></h3>
+            <h3>Lunes a Sábados <?php echo $horario_sucursal ?></h3>
         </div>
         <div class="menu">
             <div class="logo">

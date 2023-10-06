@@ -6,13 +6,12 @@
 ?>
     <section class="fondoSeccion Ubicacion" id="Ubicacion">
         <div class="container">
-            <div class="contenedorUbicacion">
                 <h2>Nuestra sucursal</h2>                
                 <?php foreach($locales as $local){ ?>
                 <div class="ruta">
                     <div class="direccion">
                         <p> <?php echo $local['Direccion']; ?> </p>
-                        <img src="..\assets\img\logo-cafecito.jpg" alt="La Ventana Del Café">
+                        <img src="..\assets\icons\LogoLaVentanaDelCafé.png" alt="La Ventana Del Café">
                         <!-- Montevideo 719, Recoleta, CABA -->
                     </div>
                     <div class="mapa">
@@ -21,6 +20,7 @@
                     </div>
                 </div>
             <?php } ?>
+            
                 <div class="nuestroLocal">
                     <h2>Conocé nuestro local</h2>
                     <div class="carrousel">
@@ -39,7 +39,6 @@
                             ?> 
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>
