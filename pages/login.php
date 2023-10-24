@@ -38,7 +38,9 @@ if (isset($_POST['entrar'])){
 <body>
     <div class="container">
         <div class="contact-box">
-            <div class="left"></div>
+            <div class="left">
+                <!-- SE AGREGA EN EL ESTILO -->
+            </div>
             <div class="right">
                 <h2>Inicia Sesión</h2>
                 <form action="login.php" method="post">
