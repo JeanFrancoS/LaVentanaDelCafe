@@ -8,12 +8,14 @@
   box-sizing: border-box;
   font-family: "Kessel 205 W00 Book", sans-serif;
   text-transform: uppercase;
-  color: #e90d0d;
 }
 
 body {
   height: 100vh;
   width: 100%;
+}
+.right h2{
+  color: white;
 }
 .container {
   position: relative;
@@ -23,7 +25,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px 100px;
-  background-color: white;
+  /* background-color: white; */
 }
 .container::after {
   content: "";
@@ -32,7 +34,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url("../assets/img/f1.jpeg");
+  background-image: url("../assets/img/foto\ merienda.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -51,7 +53,7 @@ body {
   box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
 }
 .left {
-  background: url("../assets/img/coding\ photo.jpeg") no-repeat center;
+  background: url("../assets/img/cafe2.jpg") no-repeat center;
   background-size: cover;
   height: 100%;
 }
@@ -78,7 +80,7 @@ h2::after {
   width: 100%;
   border: 2px solid rgba(0, 0, 0, 0.184);
   outline: none;
-  background-color: #dfac22;
+  background-color: gray;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
   margin-bottom: 22px;
@@ -94,17 +96,18 @@ textarea {
 .btn {
   width: 40%;
   padding: 0.5rem 1rem;
-  background-color: #9a0d0d;
-  color: #bdba2c;
+  background-color: black;
+  color: white;
   font-size: 1.1rem;
-  border: none;
+  border: 2px transparent solid;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-weight: 700;
 }
 .btn:hover {
-  filter: brightness(170%);
+  /* filter: brightness(150%); */
+  border: 2px white solid;
 }
 .btnVolver {
   text-decoration: none;
@@ -112,7 +115,7 @@ textarea {
   /* width: 100%; */
 }
 .field:focus {
-  border: 2px solid #9a0d0d;
+  border: 2px solid white;
   filter: brightness(170%);
 }
 
