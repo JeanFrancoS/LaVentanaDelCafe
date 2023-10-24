@@ -7,7 +7,7 @@ $tipoAlimentos = $conexion->consultar("SELECT * FROM `tipoalimento` WHERE Estado
 foreach($tipoAlimentos as $tipoAlimento){
 ?>
 
-        <li><a href="#<?php echo $tipoAlimento['Nombre'] ?>" class="linkTipoAlimento"><?php echo $tipoAlimento['Nombre'] ?></a></li>
+        <li><a href="#<?php echo $tipoAlimento['Nombre'] ?>" class="linkTipoAlimento link"><?php echo $tipoAlimento['Nombre'] ?></a></li>
         <?php
 }?>
 </ul>
