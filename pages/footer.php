@@ -35,10 +35,10 @@
         &copy; 2023 - La Ventana del Café, todos los derechos reservados
     </div>
     </footer>
-    <a href="https://web.whatsapp.com/send?phone=54%C2%A09%C2%A011%C2%A03617-2154&text=Hola!%20Acabo%20de%20ver%20tu%20portfolio.%20[Ingrese%20lo%20que%20desee%20decir.%20Será%20respondido%20a%20la%20brevedad%20posible&#128513]"
+    <a href="https://web.whatsapp.com/send?phone=54%C2%A09%C2%A011%C2%A03617-2154&text=Hola!%20Quería%20pedirte%20[ingrese%20lo%20que%20desea%20pedir]%20a%20nombre%20de%20[nombre].%20En%20cuanto%20tiempo%20estará%20mi%20pedido?&#128513]"
     class="chatWpp" target="_blank">
         <i class="fa-brands fa-whatsapp wppIcon"></i>
     </a>
-    <!-- <script src="js/envio.js"></script> -->
+    <script src="../js/javascript.js"></script>
 </body>
 </html>

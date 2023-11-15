@@ -33,7 +33,7 @@ if (isset($_POST['entrar'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style-login.css">
-    <title>Login-CRUD</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="container">
@@ -45,10 +45,9 @@ if (isset($_POST['entrar'])){
                 <h2>Inicia Sesión</h2>
                 <form action="login.php" method="post">
                     <input type="text" name="usuario" id="usuario" class="field" placeholder="Usuario" required>
-                    <input type="text" name="pass" id="subject" class="field" placeholder="Password" required>
+                    <input type="password" name="pass" id="subject" class="field" placeholder="Contraseña" required>
                     <a href="index.php"><input type="button" value="Volver" class="btn btnVolver"></a>
-                    <input type="submit" name="entrar" value="Enviar" class="btn">
-                    <!-- <p>Usuario: Admin <br> Pass: 123 </p> -->
+                    <input type="submit" name="entrar" value="Enviar" class="btn btnEnviar">
                 </form>
         </div>
     </div>

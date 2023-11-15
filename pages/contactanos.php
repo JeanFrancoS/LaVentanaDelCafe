@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
     <section class="fondoSeccion" id="Contactanos">
-        <div class="container">
+        <div class="container contactanos">
             <h2>CONTACTANOS</h2>
             <div class="formGral">
                 <div class="formulario">

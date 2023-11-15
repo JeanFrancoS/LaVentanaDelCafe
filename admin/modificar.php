@@ -39,7 +39,7 @@ if($_POST){
             foreach($proyecto as $fila){ ?>
                 <div class="Modificar">
                     <div class="card-titulo">
-                        <h2>Datos del Proyecto</h2>
+                        <h2>Datos de las imágenes del local</h2>
                     </div>
                     <div class="card-body">
                         <form action="#" method="POST" enctype="multipart/form-data">

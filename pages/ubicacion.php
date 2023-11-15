@@ -20,26 +20,40 @@
                     </div>
                 </div>
             <?php } ?>
-            
-                <div class="nuestroLocal">
-                    <h2>Conocé nuestro local</h2>
-                    <div class="carrousel">
-                        <div class="grande">
-                            <?php #leemos imagenes 1 por 1
-                                foreach($imagenes as $imagen){ 
-                            ?>
-                                <div class="card-imagen">
-                                    <img src="../assets/img/<?php echo $imagen['Imagen'];?>" alt="La Ventana Del Café">
-                                </div>
-                                <ul class="puntos">
-                                    <li class="punto"></li>
-                                </ul>
-                            <?php 
-                                } 
-                            ?> 
-                        </div>
-                    </div>
+            <div class="container-carousel carruselAncho">
+                <div class="carruseles " id="slider">
+                    <section class="slider-section">
+                        <img src="../assets/img/Local/puerta.jpg" alt="Entrada cafetería">
+                    </section>
+                    <section class="slider-section">
+                        <img src="../assets/img/Local/Interior.jpg" alt="Interior cafetería">
+                    </section>
+                    <section class="slider-section">
+                        <img src="../assets/img/Local/cafe.jpg" alt="Café">
+                    </section>
+                </div>
+                <div class="btn-left"><</div>
+                <div class="btn-right">></div>
             </div>
+            <!-- <div class="nuestroLocal">
+                <h2>Conocé nuestro local</h2>
+                <div class="carrousel">
+                    <div class="grande">
+                        <?php #leemos imagenes 1 por 1
+                            foreach($imagenes as $imagen){ 
+                        ?>
+                            <div class="card-imagen">
+                                <img src="../assets/img/<?php echo $imagen['Imagen'];?>" alt="La Ventana Del Café">
+                            </div>
+                            <ul class="puntos">
+                                <li class="punto"></li>
+                            </ul>
+                        <?php 
+                            } 
+                        ?> 
+                    </div>
+                </div>
+            </div> -->
         </div>
     </section>
 <?php include './footer.php'; ?>

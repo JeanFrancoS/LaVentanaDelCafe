@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 <?php 
 $tipoAlimentos = $conexion->consultar("SELECT * FROM `tipoalimento` WHERE Estado = 1");?>
-<nav class="navMenu">
+<nav class="navMenu" id="navMenu">
     <ul class="ul">
 <?php
 foreach($tipoAlimentos as $tipoAlimento){
@@ -19,7 +19,7 @@ foreach($tipoAlimentos as $tipoAlimento){
 $productos = $conexion->consultar("SELECT * FROM `producto` WHERE Estado = 1 AND `idTipoAlimento` = ".$tipoAlimento['id']);
 ?>
         
-        <section class="" id="<?php echo $tipoAlimento['Nombre'] ?>">
+        <section class="seccionMenu" id="<?php echo $tipoAlimento['Nombre'] ?>">
             
                 <h2><?php echo $tipoAlimento['Nombre'] ?></h2><br/>
                 <div class="card-menu">
