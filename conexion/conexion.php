@@ -30,6 +30,4 @@
          2do agarra el objeto y ejecuta la sentencia de sql que devuelve o no filas de base de datos 
          3ro fetchall() nos devuelve un array con las filas del select  */
     }
-
-
 } ?>

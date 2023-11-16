@@ -103,6 +103,9 @@ main {
   width: 40%;
   flex-direction: column;
 }
+.modifAbm {
+  min-height: 83vh;
+}
 .lugarImagen {
   display: flex;
 }

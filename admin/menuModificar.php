@@ -15,26 +15,61 @@ if($_POST){
     $imagen_seleccionada = $_FILES['imagen']['name']; //imagen_bd
     $nombre_imagen = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
-    $valor = $_POST['valor'];
+    $valor = $_POST['Valor'];
     $tipoAlimento = $_POST['tipoAlimento'];
+    $temperatura = $_POST['temperatura'];
+    $dulce = isset($_POST['Dulce']);
+    
+
+    $sqlTemp = "SELECT id 
+        FROM `Temperatura`
+        WHERE `Estado` = 1
+            AND `Nombre` = '$temperatura'";
+    $sqlAlim = "SELECT id
+        FROM `tipoalimento`
+        WHERE `Estado` = 1
+            AND `Nombre` = '$tipoAlimento'";
+    $tempSelec = $conexion->consultar($sqlTemp);
+    $alimSelec = $conexion->consultar($sqlAlim);
+    foreach($tempSelec as $ts){
+        $idTemp = $ts['id'];
+    }
+    foreach($alimSelec as $as){
+        $idAlim = $as['id'];
+    }
 
     if ($imagen_seleccionada!="") {
         unlink("../assets/img/productos/".$imagen_bd[0]['Imagen']);
         $imagen_temporal=$_FILES['imagen']['tmp_name'];
-        $fecha = new DateTime();
-        $imagen = $fecha->getTimestamp()."_".$imagen_seleccionada;
+        $imagen = $imagen_seleccionada;
         move_uploaded_file($imagen_temporal,"../assets/img/productos/".$imagen);
-        $sql = "UPDATE `producto` SET `Nombre` = '$nombre_imagen' , 
-                                    `Imagen` = '$imagen', `Descripcion` = '$descripcion' 
-                    WHERE `producto`.`id` = '$id';";
+        $sql = "UPDATE `producto` AS `P`
+                    INNER JOIN `tipoalimento` as `A` ON `A`.`id` = `P`.`idTipoAlimento`
+                    INNER JOIN `temperatura` as `T` ON `T`.`id` = `P`.`idTemperatura`
+                    SET `P`.`Nombre` = '$nombre_imagen' , 
+                                    `P`.`Imagen` = '$imagen', 
+                                    `P`.`Valor` = '$valor', 
+                                    `P`.`idTipoAlimento` =  '$idAlim', 
+                                    `P`.`idTemperatura` =  '$idTemp',  
+                                    `P`.`Dulce` = '$dulce', 
+                                    `P`.`Descripcion` = TRIM('$descripcion')
+                    WHERE `P`.`id` = '$id';";
     }
     else{
-        $sql = "UPDATE `producto` SET `Nombre` = '$nombre_imagen', 
-                                    `Descripcion` = '$descripcion' 
-                    WHERE `producto`.`id` = '$id';";
+        $sql = "UPDATE `producto` as `P` 
+                    INNER JOIN `tipoalimento` as `A` ON `A`.`id` = `P`.`idTipoAlimento`
+                    INNER JOIN `temperatura` as `T` ON `T`.`id` = `P`.`idTemperatura`
+                    SET `P`.`Nombre` = '$nombre_imagen', 
+                                    `P`.`Valor` = '$valor', 
+                                    `P`.`idTipoAlimento` = $idAlim,
+                                    `P`.`idTemperatura` = $idTemp,
+                                    `P`.`Dulce` = '$dulce', 
+                                    `P`.`Descripcion` = TRIM('$descripcion')
+                    WHERE `P`.`id` = '$id'";
     }
     $id_producto = $conexion->ejecutar($sql);
-    header("location:galeria.php");
+    echo $sql;
+    header("location:menu.php");
     die();
 }
 $alimentos = $conexion->consultar("SELECT *
@@ -46,7 +81,7 @@ $temperaturas = $conexion->consultar("SELECT *
 ?>
 <main>
     <section class="sCards" >
-        <div class="mainAbm">
+        <div class="mainAbm modifAbm">
             <?php #leemos proyectos 1 por 1
             foreach($producto as $campo){ 
                 $ta = $campo["idTipoAlimento"];
@@ -79,30 +114,30 @@ $temperaturas = $conexion->consultar("SELECT *
                                     </div>
                                     <div class="infoCard">
                                         <label for="Valor">Valor</label>
-                                        <input required class="form-control" type="text" name="valor" id="valor" value="$<?php echo $campo['Valor']?>">
+                                        <input required class="form-control" type="text" name="Valor" id="Valor" value="<?php echo $campo['Valor']?>">
                                     </div>
                                     <div class="infoCard">
                                         <label for="TipoAlimento">Tipo de Alimento</label>
                                         <select name="tipoAlimento" class="form-control">
-                                            <option value="sinValor" class="form-control">Seleccione una opción...</option>
+                                            <!-- <option value="sinValor" class="form-control">Seleccione una opción...</option> -->
                                             <?php foreach($alimentos as $alimento){ ?>
-                                            <option value="<?php echo $alimento['Nombre'];?>" class="form-control" <?php if ($prodSelecAlimento == $alimento['Nombre']) { echo 'selected="selected"';} ?>><?php echo $alimento['Nombre'];}?></option>
+                                            <option value="<?php echo $alimento['Nombre'];?>" class="form-control" id="tipoAlimento" <?php if ($prodSelecAlimento == $alimento['Nombre']) { echo 'selected="selected"';} ?>><?php echo $alimento['Nombre'];}?></option>
                                         </select>
                                     </div>
                                     <div class="infoCard">
                                         <label for="Temperatura">Temperatura</label>
                                         <select name="temperatura" class="form-control">
-                                            <option value="sinValor" class="form-control">Seleccione una opción...</option>
+                                            <!-- <option value="sinValor" class="form-control">Seleccione una opción...</option> -->
                                             <?php foreach($temperaturas as $temperatura){ ?>
-                                            <option value="<?php echo $temperatura['Nombre'];?>" class="form-control" <?php if ($prodSelecTemperatura == $temperatura['Nombre']) { echo 'selected="selected"';} ?>><?php echo $temperatura['Nombre'];}?></option>
+                                            <option value="<?php echo $temperatura['Nombre'];?>" class="form-control" id="temperatura" <?php if ($prodSelecTemperatura == $temperatura['Nombre']) { echo 'selected="selected"';} ?>><?php echo $temperatura['Nombre'];}?></option>
                                         </select>
                                     </div>
                                     <div class="infoCard">
-                                        <label for="Dulce">Dulce<input class="form-control chk" type="checkbox" name="dulce" id="dulce" <?php echo ($campo['Dulce'] == 1) ? 'checked' : ''; ?>></label>
+                                        <label for="Dulce">Dulce<input class="form-control chk" type="checkbox" name="Dulce" id="Dulce" <?php echo ($campo['Dulce'] == 1) ? 'checked' : ''; ?>></label>
                                     </div>
                                     <div class="infoCard">
                                         <label for="Descripcion">Descripción</label>
-                                        <textarea required class="form-control" name="descripcion" id="descripcion" cols="30" rows="4"><?php echo $campo['Descripcion']?></textarea>
+                                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="4"><?php echo $campo['Descripcion']?></textarea>
                                     </div>
                                     <div>                        
                                         <input class="btn bEnviar" type="submit" value="Modificar"></input>
@@ -125,9 +160,6 @@ $temperaturas = $conexion->consultar("SELECT *
             } ?>
         </div>
     </section>
-    <!-- <?php echo "<script> document.ready()
-                </script>"
-                ?> -->
 </main>
 
 <?php include 'footer.php'; ?>
