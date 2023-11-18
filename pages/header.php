@@ -15,6 +15,7 @@ foreach($sucursales as $sucursal){
     <title><?php echo $nombre_sucursal ?></title>
     <link rel="stylesheet" href="../css/styles-index.css">
     <script src="https://kit.fontawesome.com/45b2b8f4cd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="website icon" href="../assets/icons/<?php echo $logo_sucursal ?>" type="image/x-icon">
 </head>
 <body class="body">

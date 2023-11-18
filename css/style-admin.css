@@ -66,7 +66,7 @@ main {
 /*  FORMULARIO  */
 .cards {
   background-color: rgba(0, 0, 0, 0.753);
-  padding: 2rem;
+  /* padding: 2rem; */
   min-height: 83.8vh;
   color: white;
 }
@@ -208,6 +208,7 @@ td {
 }
 .proyectosView {
   font-size: 20px;
+  padding: 2rem;
 }
 .linkMail {
   text-decoration: none;
@@ -274,6 +275,7 @@ footer {
   max-height: 78px;
   min-height: 78px;
   align-items: center;
+  justify-content: space-evenly;
 }
 .linksExternos:hover {
   height: 50px;
@@ -360,6 +362,15 @@ footer {
 }
 .wppIcon {
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-left: 1rem;
 }
+.alta:hover {
+  fill: green;
+  /* border-radius: 50%; */
+}
+/* .btnTabla {
+  background-color: white;
+  padding: 0.3rem;
+  border-radius: 10px;
+} */

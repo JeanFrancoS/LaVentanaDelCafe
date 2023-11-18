@@ -22,6 +22,7 @@ foreach($sucursales as $sucursal){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style-admin.css"> 
     <script src="https://kit.fontawesome.com/45b2b8f4cd.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="website icon" href="../assets/icons/<?php echo $logo_sucursal ?>" type="image/x-icon">
     <title>Administración</title>
 </head>
