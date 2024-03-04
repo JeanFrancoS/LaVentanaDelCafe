@@ -41,7 +41,7 @@
     <div class="prodIng">
             <h2 class="titListado card-titulo2">Listado de productos dados de baja: </h2>
             <div class="contenedorTabla">
-                <table class="table">
+                <table class="table tableDark table-striped">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -59,7 +59,7 @@
                         foreach($productos as $producto){ ?>
                         <tr >
                             <td><?php echo $producto['Nombre'];?></td>
-                            <td><img width="200px" style="max-height:200px; object-fit:cover;" src="../assets/img/productos/<?php echo $producto['Imagen'];?>" alt="">  </td>
+                            <td><img width="200px" style="max-height:200px; object-fit:cover;" src="../assets/img/productos/<?php echo $producto['Imagen'];?>" alt="<?php echo $producto['Nombre'];?>">  </td>
                             <td>$<?php echo $producto['Valor'];?></td>
                             <td><?php echo $producto['Alimento'];?></td>
                             <td><?php echo $producto['Temperatura'];?></td>

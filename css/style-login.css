@@ -25,7 +25,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px 100px;
-  /* background-color: white; */
 }
 .container::after {
   content: "";
@@ -106,7 +105,6 @@ textarea {
   font-weight: 700;
 }
 .btn:hover {
-  /* filter: brightness(150%); */
   border: 2px white solid;
 }
 .btnEnviar {
@@ -115,11 +113,25 @@ textarea {
 .btnVolver {
   text-decoration: none;
   background-color: gray;
-  /* width: 100%; */
 }
 .field:focus {
   border: 2px solid white;
   filter: brightness(170%);
+}
+/* .pw {
+  position: absolute;
+} */
+.divPw {
+  display: inline-block;
+  width: 100%;
+}
+.btnPw {
+  background-color: white;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  /* top: 10px; */
+  margin-top: 12px;
 }
 
 @media screen and (max-width: 880px) {

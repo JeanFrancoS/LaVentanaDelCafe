@@ -19,5 +19,6 @@
         </nav>
     </footer>
     <script src="../js/javascriptAdmin.js"></script>
+    <script src="../js/funcionesComun.js"></script>
 </body>
 </html>

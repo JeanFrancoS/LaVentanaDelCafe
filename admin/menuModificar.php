@@ -19,6 +19,7 @@ if($_POST){
     $tipoAlimento = $_POST['tipoAlimento'];
     $temperatura = $_POST['temperatura'];
     $dulce = isset($_POST['Dulce']);
+    $activo = isset($_POST['Estado']);
     
 
     $sqlTemp = "SELECT id 
@@ -52,6 +53,7 @@ if($_POST){
                                     `P`.`idTipoAlimento` =  '$idAlim', 
                                     `P`.`idTemperatura` =  '$idTemp',  
                                     `P`.`Dulce` = '$dulce', 
+                                    `P`.`Estado` = '$activo', 
                                     `P`.`Descripcion` = TRIM('$descripcion')
                     WHERE `P`.`id` = '$id';";
     }
@@ -64,6 +66,7 @@ if($_POST){
                                     `P`.`idTipoAlimento` = $idAlim,
                                     `P`.`idTemperatura` = $idTemp,
                                     `P`.`Dulce` = '$dulce', 
+                                    `P`.`Estado` = '$activo', 
                                     `P`.`Descripcion` = TRIM('$descripcion')
                     WHERE `P`.`id` = '$id'";
     }
@@ -87,6 +90,7 @@ $temperaturas = $conexion->consultar("SELECT *
                 $ta = $campo["idTipoAlimento"];
                 $t = $campo["idTemperatura"];
                 $d = $campo['Dulce'];
+                $e = $campo['Estado'];
                 $productoSeleccionado = $conexion->consultar("SELECT `P`.*, `A`.`Nombre` AS `Alimento`, `T`.`Nombre` AS `Temperatura`
                                                                 FROM `producto` as `P`
                                                                     INNER JOIN `tipoalimento` as `A` ON `A`.`id` = `P`.`idTipoAlimento` AND `A`.`estado` = 1
@@ -119,7 +123,6 @@ $temperaturas = $conexion->consultar("SELECT *
                                     <div class="infoCard">
                                         <label for="TipoAlimento">Tipo de Alimento</label>
                                         <select name="tipoAlimento" class="form-control">
-                                            <!-- <option value="sinValor" class="form-control">Seleccione una opción...</option> -->
                                             <?php foreach($alimentos as $alimento){ ?>
                                             <option value="<?php echo $alimento['Nombre'];?>" class="form-control" id="tipoAlimento" <?php if ($prodSelecAlimento == $alimento['Nombre']) { echo 'selected="selected"';} ?>><?php echo $alimento['Nombre'];}?></option>
                                         </select>
@@ -127,13 +130,15 @@ $temperaturas = $conexion->consultar("SELECT *
                                     <div class="infoCard">
                                         <label for="Temperatura">Temperatura</label>
                                         <select name="temperatura" class="form-control">
-                                            <!-- <option value="sinValor" class="form-control">Seleccione una opción...</option> -->
                                             <?php foreach($temperaturas as $temperatura){ ?>
                                             <option value="<?php echo $temperatura['Nombre'];?>" class="form-control" id="temperatura" <?php if ($prodSelecTemperatura == $temperatura['Nombre']) { echo 'selected="selected"';} ?>><?php echo $temperatura['Nombre'];}?></option>
                                         </select>
                                     </div>
                                     <div class="infoCard">
                                         <label for="Dulce">Dulce<input class="form-control chk" type="checkbox" name="Dulce" id="Dulce" <?php echo ($campo['Dulce'] == 1) ? 'checked' : ''; ?>></label>
+                                    </div>
+                                    <div class="infoCard">
+                                        <label for="Activo">Activo<input class="form-control chk" type="checkbox" name="Activo" id="Activo" <?php echo ($campo['Estado'] == 1) ? 'checked' : ''; ?>></label>
                                     </div>
                                     <div class="infoCard">
                                         <label for="Descripcion">Descripción</label>

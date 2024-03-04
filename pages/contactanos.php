@@ -20,7 +20,6 @@
                             <textarea type="text"  class="txt msje" id="mensaje" name="message" placeholder="Escriba un mensaje*" cols="90" rows="4" required></textarea>
                         </div>
                         <div class="btnesForm">
-                            <!-- <input type="reset" value="Borrar" class="btn btnForm"> -->
                             <input type="submit" value="Enviar" class="btn btnForm">
                         </div>
                     </form>
